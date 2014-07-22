@@ -12,7 +12,7 @@
 		<a href="" id="logo"></a>
 		
 		<nav>
-			<a href="" class="nav">< ? Log In ? ></a>
+			<a href="log_in.php" class="nav">< ? Log In ? ></a>
 			<a href="register.php" class="nav">< ? Register ? ></a>
 
 		</nav>
