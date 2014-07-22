@@ -27,46 +27,170 @@ class Form {
 			$sErrors = $this->aErrors[$sControlName];
 		}
 
-		$this->sHTML .='<span class="errorMessage">X</span>'
-		$this->sHTML .='<label for="'.$sControlName.'">'.$sLabelText.'/></label>'
-		$this->sHTML .='<input type="text" name="FirstName" id="FirstName">'
+		$this->sHTML .='<span class="errorMessage">'.$sErrors.'</span>';
+		$this->sHTML .='<label for="'.$sControlName.'">'.$sLabelText.'/></label>';
+		$this->sHTML .='<input type="text" name="'.$sControlName.'" id="'.$sControlName.'" value="'.$sData.'">';
 
+
+	}
+
+	public function makeInputPassword($sLabelText,$sControlName) {
+
+		$sData = "";
+		if(isset($this->aData[$sControlName])) {
+			$sData = $this->aData[$sControlName];
+		}
+
+		$sErrors = "";
+		if(isset($this->aErrors[$sControlName])) {
+			$sErrors = $this->aErrors[$sControlName];
+		}
+
+		$this->sHTML .='<span class="errorMessage">'.$sErrors.'</span>';
+		$this->sHTML .='<label for="'.$sControlName.'">'.$sLabelText.'/></label>';
+		$this->sHTML .='<input type="password" name="'.$sControlName.'" id="'.$sControlName.'" value="'.$sData.'">';
+
+
+	}
+
+	public function makeUploadBox($sLabelText,$sControlName) {
+
+		$sData = "";
+		if(isset($this->aData[$sControlName])) {
+			$sData = $this->aData[$sControlName];
+		}
+
+		$sErrors = "";
+		if(isset($this->aErrors[$sControlName])) {
+			$sErrors = $this->aErrors[$sControlName];
+		}
+
+		$this->sHTML .='<span class="errorMessage">'.$sErrors.'</span>';
+		$this->sHTML .='<label for="'.$sControlName.'">'.$sLabelText.'/></label>';
+		$this->sHTML .='<input type="file" name="'.$sControlName.'" id="'.$sControlName.'" value="'.$sData.'">';
+
+
+	}
+
+	public function makeHiddenField($sControlName, $sValue) {
+
+			$this->sHTML .= '<input type="hidden" name="'.$sControlName.'" value="'.$sValue.'"/>';
+	}
+
+	public function makeSubmitButton($sValue, $sControlName) {
+
+		$this->sHTML .='<input type="'.$sControlName.'" name="'.$sControlName.'" id="'.$sControlName.'" value="'.$sValue.'">';
+	}
+
+	public function checkRequired($sControlName) {
+
+			$sData = "";
+			if(isset($this->aData[$sControlName])) {
+				$sData = $this->aData[$sControlName];
+			}
+
+			if(trim($sData)=="") {
+				$this->aErrors[$sControlName] = "X";
+			}
+
+	}
+
+	public function checkUpload($sControlName, $sMimeType, $iSize) {
+
+			$sErrorMessage = "";
+
+			if(empty($this->aFiles[$sControlName]["name"])) {
+
+				$sErrorMessage = "X";
+
+			}  elseif($this->aFiles[$sControlName]['error'] != UPLOAD_ERR_OK) {
+
+				$sErrorMessage = "X";
+
+			} elseif($this->aFiles[$sControlName]["type"] != $sMimeType) {
+
+				$sErrorMessage = "Only " . $sMimeType . " format can be uploaded";
+
+			} elseif($this->aFiles[$sControlName]["size"] > $iSize) {
+
+				$sErrorMessage = "Files canot exceed " . $iSize . " bytes in size";
+
+			} 
+
+			if($sErrorMessage != "") {
+
+				$this->aErrors[$sControlName] = $sErrorMessage;
+
+			}
+
+	}
+
+	public function moveFile($sControlName, $sNewFileName){
+		
+			$newname = dirname(__FILE__).'/../'.$sNewFileName;
+			
+			move_uploaded_file($this->aFiles[$sControlName]['tmp_name'],$newname);
+			
+	}
+
+	public function checkMatch($sControlName1, $sControlName2) { //checks if the password and confirm password match or not
+
+			$sData1 = "";
+			if(isset($this->aData[$sControlName1])) {
+				$sData1 = $this->aData[$sControlName1];
+			}
+
+			$sData2 = "";
+			if(isset($this->aData[$sControlName2])) {
+				$sData2 = $this->aData[$sControlName2];
+			}
+
+			if($sData1 !== $sData2) {
+				$this->aErrors[$sControlName2] = "X"; //if doesn't match, then place this error message into the aError array so that a new customer cannot be saved
+			} 
+
+	}
+
+	public function makeErrorMessage($sControlName, $sMessage){
+
+			$this->aErrors[$sControlName] = $sMessage;
+
+	}
+
+	public function __get($var) {
+
+			switch($var) {
+				case "html":
+					return $this->sHTML."</form>";
+					break;
+				case "isValid":
+					if((count($this->aErrors))==0) {
+						return true;
+					} else {
+						return false;
+					};
+					break;
+				default:
+					die($var . "does not exist");
+			}
+
+
+	}
+
+	public function __set($var, $value) {
+
+			switch($var) {
+				case "data":
+					$this->aData = $value;
+					break;
+				case "files":
+					$this->aFiles = $value;
+					break;
+				default:
+					die($var . "fails");
+			}
 
 	}
 }
 
  ?>
-
- <form action="">
-	
-	<span class="errorMessage">X</span>
-	<label for="FirstName">First Name/></label>
-	<input type="text" name="FirstName" id="FirstName">
-
-	<span class="errorMessage">X</span>
-	<label for="LastName">Last Name/></label>
-	<input type="text" name="LastName" id="LastName">
-
-	<span class="errorMessage">X</span>
-	<label for="Email">Email/></label>
-	<input type="text" name="Email" id="Email">
-	
-	<span class="errorMessage">X</span>
-	<label for="UserName">User Name/></label>
-	<input type="text" name="UserName" id="UserName">
-	
-	<span class="errorMessage">X</span>
-	<label for="Password">Password/></label>
-	<input type="password" name="Password" id="Password">
-	
-	<span class="errorMessage">X</span>
-	<label for="ConirmPassword">Confirm Password/></label>
-	<input type="password" name="ConirmPassword" id="ConirmPassword">
-	
-	<span class="errorMessage">X</span>
-	<label for="ProfilePicture">Profile Picture/></label>
-	<input type="file" name="ProfilePicture" id="ProfilePicture">
-
-	<input type="Submit" name="Submit" id="Submit">
-
-</form>

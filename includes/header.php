@@ -13,7 +13,7 @@
 		
 		<nav>
 			<a href="" class="nav">< ? Log In ? ></a>
-			<a href="" class="nav">< ? Register ? ></a>
+			<a href="register.php" class="nav">< ? Register ? ></a>
 
 		</nav>
 
