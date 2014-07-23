@@ -1,6 +1,4 @@
 
-
-
 	</div>
 
 		<!-- =====================End of container===================== -->
@@ -10,6 +8,8 @@
 		&lt; website /&gt; &lt;by&gt; Valentin &lt;by/&gt;
 
 	</footer>
+
+
 
 
 	

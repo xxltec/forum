@@ -5,7 +5,7 @@
 	require_once("includes/model_collection.php");
 	require_once("includes/model_user.php");
 
-	session_start();
+
 
 		if(isset($_SESSION["UserID"])) {
 
@@ -41,6 +41,8 @@
 
 					} else {
 
+						$loginUserID = $oUser->UserID;
+						$_SESSION["UserID"] = $loginUserID;
 						header("Location:index.php"); 
 						exit;
 					}

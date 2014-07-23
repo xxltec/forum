@@ -194,6 +194,11 @@ div.post{
 	
 }
 
+#addThread{
+
+	margin-top: 20px;
+}
+
 /*===============FORM=================*/
 
 form{
@@ -245,4 +250,15 @@ input{
 
 
 
+}
+
+/*==============UserIMG===================*/
+
+#userImg{
+
+	width: 70px;
+	height: 70px;
+	float: left;
+	margin-top: 10px;
+	margin-left: -330px;
 }
