@@ -48,7 +48,7 @@ $oForm = new Form();
 
 				$oUser->save();
 
-				header("Location: index.php");
+				header("Location: log_in.php");
 				exit;
 			}
 		}
