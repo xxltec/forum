@@ -29,7 +29,7 @@ class Form {
 
 		$this->sHTML .='<span class="errorMessage">'.$sErrors.'</span>';
 		$this->sHTML .='<label for="'.$sControlName.'">'.$sLabelText.'/></label>';
-		$this->sHTML .='<input type="text" name="'.$sControlName.'" id="'.$sControlName.'" value="'.$sData.'">';
+		$this->sHTML .='<input type="text" name="'.$sControlName.'" id="'.$sControlName.'" value="'.$sData.'" onblur="checkForCorrect'.$sControlName.'(this.id)">';
 
 
 	}
@@ -48,7 +48,7 @@ class Form {
 
 		$this->sHTML .='<span class="errorMessage">'.$sErrors.'</span>';
 		$this->sHTML .='<label for="'.$sControlName.'">'.$sLabelText.'/></label>';
-		$this->sHTML .='<input type="password" name="'.$sControlName.'" id="'.$sControlName.'" value="'.$sData.'">';
+		$this->sHTML .='<input type="password" name="'.$sControlName.'" id="'.$sControlName.'" value="'.$sData.'" onblur="checkForCorrect'.$sControlName.'(this.id)">';
 
 
 	}
@@ -194,3 +194,5 @@ class Form {
 }
 
  ?>
+
+  <script type="text/javascript" src="assets/javascript.js"></script>

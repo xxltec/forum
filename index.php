@@ -6,14 +6,13 @@ require_once("includes/view.php");
 
 
 
-$oCollection = new Collection();
-$aThreads = $oCollection->grabAllThreads();
 
-$oView = new View();
+$aThreads = Collection::grabAllThreads();
+
 
 require_once("includes/header.php");
 
-echo $oView->renderThreads($aThreads);
+echo View::renderThreads($aThreads);
 
 if(isset($_SESSION["UserID"])){
 					
@@ -24,3 +23,4 @@ if(isset($_SESSION["UserID"])){
 require_once("includes/footer.php");
 
 ?>
+

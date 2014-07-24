@@ -24,7 +24,8 @@ $oView = new View();
 
 require_once("includes/header.php");
 
-echo $oView->renderThread($oThread);
+echo View::renderThread($oThread);
+
 if(isset($_SESSION["UserID"])){
 $oForm = new Form();
 

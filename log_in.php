@@ -26,9 +26,8 @@
 
 				if($oForm->isValid == true) { 
 
-					$oCollection = new Collection();
 					$sUserUsername = $_POST["UserName"]; 
-					$oUser = $oCollection->findUserByUserName($sUserUsername); 
+					$oUser = Collection::findUserByUserName($sUserUsername); 
 
 
 					if($oUser == false) { 

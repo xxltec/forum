@@ -5,7 +5,7 @@ require_once("model_thread.php");
 
 	class View {
 
-		public function renderThreads($aThreads){
+		static public function renderThreads($aThreads){
 
 			
 
@@ -28,7 +28,7 @@ require_once("model_thread.php");
 			
 		}
 
-		public function renderThread($oThread){
+		static public function renderThread($oThread){
 
 			$oUser = new User();
 			$oUser->load($oThread->UserID);

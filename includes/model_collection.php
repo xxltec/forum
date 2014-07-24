@@ -7,7 +7,7 @@ require_once("model_user.php");
 
 	class Collection {
 
-		public function grabAllThreads() {
+		static public function grabAllThreads() {
 
 			$aThreads = "";
 
@@ -28,7 +28,7 @@ require_once("model_user.php");
 		}
 
 
-		public function findUserByUserName($sUserName) {
+		static public function findUserByUserName($sUserName) {
 
 			$oConnection = new Connection();
 
