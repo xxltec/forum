@@ -8,6 +8,7 @@ require_once("model_post.php");
 		private $iThreadID;
 		private $sThreadName;
 		private $iUserID;
+		private $iVisible;
 		private $bExisting;
 		private $aPosts;
 
@@ -16,6 +17,7 @@ require_once("model_post.php");
 			$this->iThreadID = 0;
 			$this->sThreadName = "";
 			$this->iUserID = 0;
+			$this->iVisible = 0;
 			$this->bExisting = false;
 
 			$this->aPosts = array();
@@ -29,9 +31,10 @@ require_once("model_post.php");
 
 			//execute query
 
-			$sSQL = "SELECT ThreadID, ThreadName, UserID
+			$sSQL = "SELECT ThreadID, ThreadName, UserID, Visible
 			FROM tbthread
-			WHERE ThreadID=".$oConnection->escape_value($iID);
+			WHERE ThreadID=".$oConnection->escape_value($iID) ;
+
 
 			$oResult = $oConnection->query($sSQL);
 
@@ -42,6 +45,7 @@ require_once("model_post.php");
 			$this->iThreadID = $aThread["ThreadID"];
 			$this->sThreadName = $aThread["ThreadName"];
 			$this->iUserID = $aThread["UserID"];
+			$this->iVisible = $aThread["Visible"];
 
 
 			$sSQL ="SELECT PostID 
@@ -68,9 +72,10 @@ require_once("model_post.php");
 
 			if($this->bExisting == false){
 
-				$sSQL = "INSERT INTO tbthread (ThreadName, UserID)
+				$sSQL = "INSERT INTO tbthread (ThreadName, UserID, Visible)
 						VALUES ('".$oConnection->escape_value($this->sThreadName)."',
-								'".$oConnection->escape_value($this->iUserID)."')";
+								'".$oConnection->escape_value($this->iUserID)."',
+								'".$oConnection->escape_value($this->iVisible)."')";
 			
 				$bResult = $oConnection->query($sSQL);
 
@@ -86,7 +91,8 @@ require_once("model_post.php");
 
 				$sSQL = "UPDATE tbthread
 					SET ThreadName = '".$oConnection->escape_value($this->sThreadName)."',
-						UserID = '".$oConnection->escape_value($this->iUserID)."'
+						UserID = '".$oConnection->escape_value($this->iUserID)."',
+						Visible = '".$oConnection->escape_value($this->iVisible)."'
 						WHERE tbthread.ThreadID=" .$oConnection->escape_value($this->iThreadID);
 
 				$bResult = $oConnection->query($sSQL);
@@ -111,6 +117,9 @@ require_once("model_post.php");
 				case "UserID":
 					return $this->iUserID;
 					break;
+				case "Visible":
+					return $this->iVisible;
+					break;
 				case "Posts":
 					return $this->aPosts;
 					break;
@@ -130,6 +139,9 @@ require_once("model_post.php");
 					break;
 				case "UserID":
 					return $this->iUserID = $value;
+					break;
+				case "Visible":
+					return $this->iVisible = $value;
 					break;
 				case "Posts":
 					return $this->aPosts = $value;

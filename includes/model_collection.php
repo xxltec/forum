@@ -27,6 +27,26 @@ require_once("model_user.php");
 			return $aThreads;
 		}
 
+		static public function grabAllThreadsByUserID($iUserID) {
+
+			$aThreads = "";
+
+			$oConnection = new Connection();
+
+			$sSQL = "SELECT ThreadID FROM tbthread WHERE UserID = '".$oConnection->escape_value($iUserID)."'";
+			$oResult = $oConnection->query($sSQL);
+
+			while($aRow = $oConnection->fetch_array($oResult)) {
+				$oThread = new Thread();
+				$oThread->load($aRow["ThreadID"]);
+				$aThreads[]=$oThread;
+			}
+
+			$oConnection->close_connection();
+
+			return $aThreads;
+		}
+
 
 		static public function findUserByUserName($sUserName) {
 
@@ -55,8 +75,8 @@ require_once("model_user.php");
 	//======================TESTING=====================
 
 	// $Collection = new Collection();
-	// $Threads = $Collection->grabAllThreads();
-	// $User=$Collection->findUserByUserName("Gates");
+	// $Threads = $Collection->grabAllThreadsByUserID(1);
+	// // $User=$Collection->findUserByUserName("Gates");
 
 	// echo "<pre>";
 	// print_r($Threads);

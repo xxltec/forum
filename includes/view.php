@@ -22,9 +22,13 @@ require_once("model_thread.php");
 				$sHTML.='<a href="thread.php?threadID='.$oThread->ThreadID.'"><h1>< '.$oThread->ThreadName.' /></h1></a>';
 				$sHTML.='<h2>&lt;by&gt; '.$oUser->UserName.' &lt;/by&gt;</h2>';
 				$sHTML.='</div>';
+				
 			}
 
+		
 			return $sHTML;
+
+			
 			
 		}
 
@@ -66,5 +70,7 @@ require_once("model_thread.php");
 	}
 
  ?>
+
+ <a href=""></a>
 
  

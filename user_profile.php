@@ -13,6 +13,11 @@ echo "<p>First Name:".$oUser->FirstName."</p>";
 echo "<p>Last Name:".$oUser->LastName."</p>";
 echo "<p>Email:".$oUser->Email."</p>";
 echo "<p>User Name:".$oUser->UserName."</p>";
+echo "<p><a href='my_threads.php'>My Threads/> </p></a>";
+echo "</br>";
+echo "</br>";
+echo "</br>";
+
 
 $oForm = new Form();
 
@@ -55,3 +60,4 @@ require_once("includes/footer.php");
 
 
  ?> 
+
