@@ -53,6 +53,21 @@ class Form {
 
 	}
 
+	public 	function makeSelect($sControlName,$sLabelText,$aOptions){
+
+		$this->sHTML .= '<label for="'.$sControlName.'">'.$sLabelText.'</label>';
+        $this->sHTML .= '<select name="'.$sControlName.'" id="'.$sControlName.'">';
+        
+        foreach($aOptions as $key=>$value){
+
+        	
+				$this->sHTML .= '<option value="'.$key.'">'.$value.'</option>';
+        	}
+
+   
+		}
+	
+
 	public function makeUploadBox($sLabelText,$sControlName) {
 
 		$sData = "";

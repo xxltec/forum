@@ -13,7 +13,7 @@ require_once("model_user.php");
 
 			$oConnection = new Connection();
 
-			$sSQL = "SELECT ThreadID FROM tbthread";
+			$sSQL = "SELECT ThreadID FROM tbthread WHERE Visible='Yes'";
 			$oResult = $oConnection->query($sSQL);
 
 			while($aRow = $oConnection->fetch_array($oResult)) {

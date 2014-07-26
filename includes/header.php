@@ -46,7 +46,7 @@
 				if(isset($_SESSION["UserID"])){
 					echo '<a href="user_profile.php" class="nav">< Hi '.$oUser->FirstName.' ></a>';
 					echo '<a href="log_out.php" class="nav">< ? LogOut ? ></a>';
-					
+				
 				}else{
 					echo '<a href="log_in.php" class="nav">< ? LogIn ? ></a>';
 					echo '<a href="register.php" class="nav">< ? Register ? ></a>';

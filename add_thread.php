@@ -12,7 +12,6 @@ $oForm = new Form();
 	if(isset($_POST["Submit"])) {
 
 		$oForm->data = $_POST;
-		$oForm->files = $_FILES;
 
 		$oForm->checkRequired("ThreadName");
 		
@@ -22,6 +21,7 @@ $oForm = new Form();
 
 			$oThread = new Thread();
 			$oThread->ThreadName = $_POST["ThreadName"];
+			$oThread->Visible = "Yes";
 			$oThread->UserID = $_SESSION["UserID"];
 
 

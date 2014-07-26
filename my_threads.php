@@ -7,8 +7,11 @@ require_once("includes/view.php");
 
 $aThreads = Collection::grabAllThreadsByUserID($_SESSION["UserID"]);
 
-echo View::renderThreads($aThreads);
-
+if (sizeof($aThreads)!=1){
+	echo View::renderThreads($aThreads);
+}else{
+	echo"<p>You dont have any threads</p>";
+}
 
 
 

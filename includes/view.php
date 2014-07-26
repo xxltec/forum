@@ -32,6 +32,33 @@ require_once("model_thread.php");
 			
 		}
 
+				static public function renderThreadsNames($aThreads){
+
+			
+
+			$sHTML = "";
+
+			for($iCount=0; $iCount < count($aThreads); $iCount++) {
+				$oThread = $aThreads[$iCount];
+
+				$oUser = new User();
+				$oUser->load($oThread->UserID);
+
+				$sHTML.='<div id="forDelete">';
+				$sHTML.='<p>Thread Name/> '.$oThread->ThreadName.'</p>';
+				$sHTML.='<p>Thread ID/> '.$oThread->ThreadID.'</p>';
+				$sHTML.='<p>Active/> '.$oThread->Visible.'</p>';
+				$sHTML.='</div>';
+				
+			}
+
+		
+			return $sHTML;
+
+			
+			
+		}
+
 		static public function renderThread($oThread){
 
 			$oUser = new User();
@@ -67,6 +94,7 @@ require_once("model_thread.php");
 			return $sHTML;
 
 		}
+	  
 	}
 
  ?>

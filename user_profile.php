@@ -13,7 +13,11 @@ echo "<p>First Name:".$oUser->FirstName."</p>";
 echo "<p>Last Name:".$oUser->LastName."</p>";
 echo "<p>Email:".$oUser->Email."</p>";
 echo "<p>User Name:".$oUser->UserName."</p>";
-echo "<p><a href='my_threads.php'>My Threads/> </p></a>";
+echo "<p><a href='my_threads.php'>All My Threads/> </p></a>";
+echo "<p><a href='my_thread_names.php'>Threads Control/> </p></a>";
+if($oUser->UserName=="xxl"){
+	echo "<p><a href='control_all_threads.php'>Control all Threads/> </p></a>";
+}
 echo "</br>";
 echo "</br>";
 echo "</br>";

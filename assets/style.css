@@ -206,13 +206,13 @@ form{
 	margin: auto;
 }
 
-label, input{
+label, input, select{
 
 	display: block;
 	width: 350px;
 }
 
-input{
+input, select{
 
 	position: relative;
 	left: 310px;
@@ -261,4 +261,11 @@ input{
 	float: left;
 	margin-top: 10px;
 	margin-left: -330px;
+}
+
+/*=============Thread active or not==============*/
+
+#forDelete{
+
+	height: auto !important;
 }
