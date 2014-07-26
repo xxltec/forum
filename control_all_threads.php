@@ -15,36 +15,41 @@ if(isset($_SESSION["UserID"])){
 
 		$aThreads = Collection::grabAllThreads();
 
-		if (sizeof($aThreads)>=1){
+		if (empty($aThreads)){
+
+			echo"<p>There is no threads on your forum</p>";
+
+		}else{
+
 			echo View::renderThreadsNames($aThreads);
 
 			$oForm = new Form();
 
-	if(isset($_POST["Submit"])) {
+			if(isset($_POST["Submit"])) {
 
 
-		$oForm->data = $_POST;
+				$oForm->data = $_POST;
 
-		$oForm->checkRequired("ThreadID");
+				$oForm->checkRequired("ThreadID");
 		
 
-		if($oForm->isValid) {
+			if($oForm->isValid) {
 
 
-			$oThread = new Thread();
-			$oThread->load ($_POST["ThreadID"]);
-			$oThread->Visible = "No";
+				$oThread = new Thread();
+				$oThread->load ($_POST["ThreadID"]);
+				$oThread->Visible = "No";
 
 
-			$oThread->save();
+				$oThread->save();
 
-			header("Location: control_all_threads.php");
-			exit;
+				header("Location: control_all_threads.php");
+				exit;
 
-		}
+			}
 
 
-	}
+			}
 
 	$oForm->makeInputText("Thread ID","ThreadID");
 
@@ -52,19 +57,17 @@ if(isset($_SESSION["UserID"])){
 
 
 	echo $oForm->html;
-
-}else{
-	echo"<p>There is no threads on your forum</p>";
-}
+		}
 
 	}else{
 
-		echo"<p>You are not welcome here, please leave!!!</p>";
+		echo"<p>You need administrative rights to use this page!!!</p>";
 	}
+
 
 } else {
 
-	echo"<p>You are not welcome here, please leave!!!</p>";
+	echo"<p>You need to be loged in to use this page!!!</p>";
 }
 
 require_once("includes/header.php");

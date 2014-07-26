@@ -6,10 +6,15 @@ require_once("includes/form_view.php");
 require_once("includes/model_thread.php");
 
 
+if (isset($_SESSION["UserID"])){
 $aThreads = Collection::grabAllThreadsByUserID($_SESSION["UserID"]);
 
-if (sizeof($aThreads)!=1){
-echo View::renderThreadsNames($aThreads);
+if (empty($aThreads)){
+
+	echo"<p>You dont have any threads</p>";
+
+}else{
+	echo View::renderThreadsNames($aThreads);
 
 $oForm = new Form();
 
@@ -51,9 +56,10 @@ $oForm = new Form();
 
 
 	echo $oForm->html;
-
+}
 }else{
-	echo"<p>You dont have any threads</p>";
+
+	echo "<p>You need to be loged in to use this page</p>";
 }
  
 include_once("includes/footer.php");
