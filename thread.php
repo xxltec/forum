@@ -1,11 +1,11 @@
 <?php 
-
 require_once("includes/model_collection.php");
 require_once("includes/view.php");
 require_once("includes/form_view.php");
 require_once("includes/model_user.php");
 require_once("includes/model_collection.php");
 require_once("includes/model_post.php");
+require_once("includes/model_thread.php");
 
 
 $iThreadID = 1;
@@ -19,7 +19,7 @@ $oThread->load($iThreadID);
 
 $oView = new View();
 
-
+$sPageTitle=$oThread->ThreadName;
 
 
 require_once("includes/header.php");

@@ -3,14 +3,14 @@
 
 body{
 
-	color: #00FF40;
-	font-family: 'Press Start 2P', cursive;
-	background-color: #000;
+	color: #000;
+	font-family: Arial, cursive;
+	background-color: #fff;
 }
 
 a{
 
-	color: #00FF40;
+	color: #000;
 }
 
 header{
@@ -22,15 +22,10 @@ header{
 
 header .nav{
 
-	color: #00FF40;
+	color: #000;
 	text-decoration: none;
 	margin-top: 70px;
-	-webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 750ms;
-    -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 750ms;
-    -ms-transition-timing-function: ease-out;
-    -ms-transition-duration: 750ms;
+
 }
 
 #logo{
@@ -47,7 +42,7 @@ header .nav{
 	width: 80px;
 	height: 80px;
 	border-radius: 10px;
-	border: 1px #00FF40 solid;
+	border: 1px #000 solid;
 }
 
 #container div{
@@ -55,21 +50,15 @@ header .nav{
 	width: 1100px;
 	height: 100px;
 	border-radius: 10px;
-	border: 1px #00FF40 solid;
+	border: 1px #000 solid;
 	margin-bottom: 10px;
-	-webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 750ms;
-    -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 750ms;
-    -ms-transition-timing-function: ease-out;
-    -ms-transition-duration: 750ms;
 }
 
 #container{
 
 	width: 1105px;
 	border-radius: 10px;
-	border: 1px #00FF40 solid;
+	border: 1px #000 solid;
 	padding: 10px 10px 0px 10px;
 	margin: auto;
 }
@@ -96,13 +85,7 @@ header .nav{
 
 	margin-left: 50px;
 	margin-top: 10px;
-	color: #00FF40;
-	-webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 750ms;
-    -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 750ms;
-    -ms-transition-timing-function: ease-out;
-    -ms-transition-duration: 750ms;
+	color: #000;
 }
 
 #container div img{
@@ -118,38 +101,7 @@ footer{
 	margin-left: 650px;
 }
 
-a:hover{
 
-	color: #fff;
-	-webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 750ms;
-    -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 750ms;
-    -ms-transition-timing-function: ease-out;
-    -ms-transition-duration: 750ms;
-}
-
-#container div a:hover{
-
-	color: #fff;
-	-webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 750ms;
-    -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 750ms;
-    -ms-transition-timing-function: ease-out;
-    -ms-transition-duration: 750ms;
-}
-
-#container div:hover{
-
-	border: 1px red solid;
-	-webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 750ms;
-    -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 750ms;
-    -ms-transition-timing-function: ease-out;
-    -ms-transition-duration: 750ms;
-}
 /*==================POST PAGE CSS======================*/
 
 h1.post{
@@ -182,7 +134,7 @@ div.post{
 
 #red{
 
-	color: #FF0000;
+	color: #000;
 }
 
 #postouthor{
@@ -217,12 +169,12 @@ input, select{
 	position: relative;
 	left: 310px;
 	top: -20px;
-	font-family: 'Press Start 2P', cursive;
-	color: #00FF40;
-	background-color:  #000;
+	font-family: Arial, cursive;
+	color: #000;
+	background-color:  #fff;
 	height: 20px;
 	border: none;
-	border-bottom: 1px #00FF40 dotted;
+	border-bottom: 1px #000 dotted;
 }
 
 #ProfilePicture{
@@ -236,16 +188,16 @@ input, select{
 	left: 0px;
 	top: -10px;
 	width: 664px;
-	background-color:  #000;
-	font-family: 'Press Start 2P', cursive;
-	border: 1px #FF0000 solid;
+	background-color:  #fff;
+	font-family: Arial, cursive;
+	border: 1px #000 solid;
 	font-size: 15px;
 	height: 23px;
 }
 
 .errorMessage{
 
-	color: #FF0000;
+	color: #000;
 	float: left;
 
 

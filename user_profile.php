@@ -1,13 +1,14 @@
-<?php 
+<?php
 
-require_once("includes/header.php");
 require_once("includes/model_user.php");
 require_once("includes/form_view.php");
-
-
+session_start();
 $oUser = new User();
 $oUser->load($_SESSION["UserID"]);
 
+$sPageTitle=$oUser->UserName;
+
+require_once("includes/header.php");
 
 echo "<p>First Name:".$oUser->FirstName."</p>";
 echo "<p>Last Name:".$oUser->LastName."</p>";

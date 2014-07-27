@@ -3,6 +3,8 @@
 require_once("includes/model_collection.php");
 require_once("includes/view.php");
 
+$sPageTitle="Home";
+
 
 
 

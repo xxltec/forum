@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="description" content="GeeK/><?php echo $sPageTitle; ?>">
+	<?php 
+	require_once("model_collection.php");
+	require_once("view.php");
+	$MetaTopics=Collection::grabAllThreads();
+	?>
+	<meta name="keywords" content="<?php echo View::renderMetaTopics($MetaTopics); ?>">
+	<meta name="author" content="Valentin Ponyaev">
 	<link rel="stylesheet" href="assets/style.css">
+	<link rel="stylesheet" href="assets/print.css" media="print">
 	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-	<title>Document</title>
+	<title>GeeK/><?php echo $sPageTitle; ?></title>
 </head>
 <body>
 	<header>
@@ -14,8 +23,10 @@
 		<?php 
 
 		require_once("includes/model_user.php");
+		
+		if(empty($_SESSION)){	
 			session_start();
-
+		}
 			if(isset($_SESSION["UserID"])){
 			
 				$oUser = new User;

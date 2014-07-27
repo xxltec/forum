@@ -32,7 +32,7 @@ require_once("model_thread.php");
 			
 		}
 
-				static public function renderThreadsNames($aThreads){
+		static public function renderThreadsNames($aThreads){
 
 			
 
@@ -58,6 +58,29 @@ require_once("model_thread.php");
 			
 			
 		}
+
+		static public function renderMetaTopics($aThreads){
+
+			
+
+			$sHTML = "";
+
+			for($iCount=0; $iCount < count($aThreads); $iCount++) {
+				$oThread = $aThreads[$iCount];
+
+
+				$sHTML.=$oThread->ThreadName.', ';
+				
+			}
+
+		
+			return $sHTML;
+
+			
+			
+		}
+
+
 
 		static public function renderThread($oThread){
 
@@ -99,6 +122,6 @@ require_once("model_thread.php");
 
  ?>
 
- <a href=""></a>
+
 
  

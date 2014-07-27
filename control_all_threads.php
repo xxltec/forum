@@ -1,5 +1,5 @@
 <?php 
-
+$sPageTitle="Control_All_Threads";
 require_once("includes/header.php");
 require_once("includes/model_collection.php");
 require_once("includes/view.php");

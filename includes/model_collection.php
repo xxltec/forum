@@ -75,8 +75,8 @@ require_once("model_user.php");
 	//======================TESTING=====================
 
 	// $Collection = new Collection();
-	// $Threads = $Collection->grabAllThreadsByUserID(1);
-	// // $User=$Collection->findUserByUserName("Gates");
+	// $Threads = $Collection->grabAllThreads();
+	// // // $User=$Collection->findUserByUserName("Gates");
 
 	// echo "<pre>";
 	// print_r($Threads);

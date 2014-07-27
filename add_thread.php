@@ -1,5 +1,5 @@
 <?php 
-
+$sPageTitle="Add_A_Thread";
 require_once("includes/header.php");
 require_once("includes/form_view.php");
 require_once("includes/model_user.php");

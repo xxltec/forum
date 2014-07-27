@@ -1,5 +1,5 @@
 <?php 
-
+$sPageTitle="My_Threads";
 require_once("includes/header.php");
 require_once("includes/model_collection.php");
 require_once("includes/view.php");
