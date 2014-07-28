@@ -40,7 +40,7 @@ $oForm = new Form();
 
 			$oUser->load($_SESSION["UserID"]);
 			$oUser->Email = $_POST["Email"];
-			$oUser->Password = (Collection::encodePassword($_POST["Password"])
+			$oUser->Password = Collection::encodePassword($_POST["Password"]);
 
 
 			$oUser->save();
