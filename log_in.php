@@ -36,7 +36,7 @@
 
 						$oForm->makeErrorMessage("UserName","X");
 
-					} elseif($_POST["Password"] !== $oUser->Password) { 
+					} elseif (Collection::encodePassword($_POST["Password"]) !== $oUser->Password) { 
 
 							$oForm->makeErrorMessage("Password","X"); 
 

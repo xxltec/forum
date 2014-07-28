@@ -41,11 +41,13 @@ $oForm = new Form();
 
 				$oUser = new User();
 
+
+
 				$oUser->FirstName = $_POST["FirstName"];
 				$oUser->LastName = $_POST["LastName"];
 				$oUser->Email = $_POST["Email"];
 				$oUser->UserName = $_POST["UserName"];
-				$oUser->Password = $_POST["Password"];
+				$oUser->Password = Collection::encodePassword($_POST["Password"]);
 				$oUser->PhotoPath = $sPhotoName;
 
 				$oUser->save();

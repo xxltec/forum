@@ -70,6 +70,14 @@ require_once("model_user.php");
 				return false;
 			}
 		}
+
+		static public function encodePassword($sPassword) {
+
+			$sSalt = hash(sha1, $sPassword."banana");
+			$sHashTheHash = hash(md5, $sSalt.$sPassword.$sSalt);
+
+			return $sHashTheHash;
+		}
 	}
 
 	//======================TESTING=====================

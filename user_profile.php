@@ -2,6 +2,7 @@
 
 require_once("includes/model_user.php");
 require_once("includes/form_view.php");
+require_once("includes/model_collection.php");
 session_start();
 $oUser = new User();
 $oUser->load($_SESSION["UserID"]);
@@ -39,7 +40,7 @@ $oForm = new Form();
 
 			$oUser->load($_SESSION["UserID"]);
 			$oUser->Email = $_POST["Email"];
-			$oUser->Password = $_POST["Password"];
+			$oUser->Password = (Collection::encodePassword($_POST["Password"])
 
 
 			$oUser->save();
