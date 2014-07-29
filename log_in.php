@@ -14,7 +14,7 @@
 			$oUser = new User();
 			$oUser->load($_SESSION["UserID"]);
 
-			echo "<p>Hi ".$oUser->FirstName.", you are already logged in. You must log out before you can log in another account</p>";
+			echo "<p>Hi ".htmlentities($oUser->FirstName).", you are already logged in. You must log out before you can log in another account</p>";
 
 		} else {
 			$oForm = new Form();
@@ -36,7 +36,7 @@
 
 						$oForm->makeErrorMessage("UserName","X");
 
-					} elseif (Collection::encodePassword($_POST["Password"]) !== $oUser->Password) { 
+					} elseif (Collection::encodePassword($_POST["Password"]) != $oUser->Password) { 
 
 							$oForm->makeErrorMessage("Password","X"); 
 

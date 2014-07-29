@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="GeeK/><?php echo $sPageTitle; ?>">
+	<meta name="description" content="GeeK/><?php echo htmlentities($sPageTitle); ?>">
 	<?php 
 	require_once("model_collection.php");
 	require_once("view.php");
@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="assets/style.css">
 	<link rel="stylesheet" href="assets/print.css" media="print">
 	<link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
-	<title>GeeK/><?php echo $sPageTitle; ?></title>
+	<title>GeeK/><?php echo htmlentities($sPageTitle); ?></title>
 </head>
 <body>
 	<header>
@@ -55,12 +55,12 @@
 		<nav>
 			<?php
 				if(isset($_SESSION["UserID"])){
-					echo '<a href="user_profile.php" class="nav">< Hi '.$oUser->FirstName.' ></a>';
-					echo '<a href="log_out.php" class="nav">< ? LogOut ? ></a>';
+					echo '<a href="user_profile.php" class="nav">&lt; Hi '.$oUser->FirstName.' &gt;</a>';
+					echo '<a href="log_out.php" class="nav">&lt; ? LogOut ? &gt;</a>';
 				
 				}else{
-					echo '<a href="log_in.php" class="nav">< ? LogIn ? ></a>';
-					echo '<a href="register.php" class="nav">< ? Register ? ></a>';
+					echo '<a href="log_in.php" class="nav">&lt; ? LogIn ? &gt;</a>';
+					echo '<a href="register.php" class="nav">&lt; ? Register ? &gt;</a>';
 				}
 			?>
 			

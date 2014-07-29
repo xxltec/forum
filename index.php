@@ -18,7 +18,7 @@ echo View::renderThreads($aThreads);
 
 if(isset($_SESSION["UserID"])){
 					
-	echo '<a href="add_thread.php" class="nav" id="addThread">< ? Add a Thread ? ></a>';
+	echo '<a href="add_thread.php" class="nav" id="addThread">&lt; ? Add a Thread ? &gt;</a>';
 					
 }
 

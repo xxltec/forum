@@ -73,8 +73,8 @@ require_once("model_user.php");
 
 		static public function encodePassword($sPassword) {
 
-			$sSalt = hash(sha1, $sPassword."banana");
-			$sHashTheHash = hash(md5, $sSalt.$sPassword.$sSalt);
+			$sSalt = hash('sha1', $sPassword."banana");
+			$sHashTheHash = hash('md5', $sSalt.$sPassword.$sSalt);
 
 			return $sHashTheHash;
 		}

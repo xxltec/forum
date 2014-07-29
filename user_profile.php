@@ -11,10 +11,10 @@ $sPageTitle=$oUser->UserName;
 
 require_once("includes/header.php");
 
-echo "<p>First Name:".$oUser->FirstName."</p>";
-echo "<p>Last Name:".$oUser->LastName."</p>";
-echo "<p>Email:".$oUser->Email."</p>";
-echo "<p>User Name:".$oUser->UserName."</p>";
+echo "<p>First Name:".htmlentities($oUser->FirstName)."</p>";
+echo "<p>Last Name:".htmlentities($oUser->LastName)."</p>";
+echo "<p>Email:".htmlentities($oUser->Email)."</p>";
+echo "<p>User Name:".htmlentities($oUser->UserName)."</p>";
 echo "<p><a href='my_threads.php'>All My Threads/> </p></a>";
 echo "<p><a href='my_thread_names.php'>Threads Control/> </p></a>";
 if($oUser->UserName=="xxl"){
@@ -26,6 +26,10 @@ echo "</br>";
 
 
 $oForm = new Form();
+
+$aExistingData = array();
+$aExistingData["Email"] = $oUser->Email;
+$oForm->data = $aExistingData;
 
 	if(isset($_POST["Submit"])) {
 
